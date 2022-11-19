@@ -1,4 +1,5 @@
 
+import tools.Utilities;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -105,17 +106,11 @@ public class AppPanel extends JPanel implements ActionListener {
             Utilities.inform("Click or select change to change the light");
         } else if (cmmd == "Change") {
             model.change();
-        } else if (cmmd == "changeButton") {
-            model.change();
         } else  {
             Utilities.error("Unrecognized command: " + cmmd);
         }
     }
-
-
-    public static void main(String[] args) {
-        AppPanel app = new AppPanel();
-        app.display();
-    }
-
+public static void main(String[] args) {
+    AppPanel app = new AppPanel();
+}
 }

@@ -1,3 +1,4 @@
+
 import javax.swing.JPanel;
 import java.awt.Graphics;
 import java.awt.Color;
@@ -20,7 +21,7 @@ public class StoplightView extends JPanel implements PropertyChangeListener {
     }
 
     public void setModel(Stoplight model){
-        this.model.addPropertyChangeListener(this);
+        this.model.removePropertyChangeListener(this);
         this.model = model;
         this.model.initSupport();
         this.model.addPropertyChangeListener(this);
@@ -40,4 +41,5 @@ public class StoplightView extends JPanel implements PropertyChangeListener {
         repaint();
     }
 }
+
 
