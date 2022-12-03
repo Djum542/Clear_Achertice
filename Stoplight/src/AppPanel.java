@@ -1,6 +1,4 @@
 
-import tools.Utilities;
-
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -11,7 +9,7 @@ import java.io.ObjectOutputStream;
 import javax.swing.*;
 
 public class AppPanel extends JPanel implements ActionListener {
-
+//khai báo model,view
     private Stoplight model;
     private StoplightView view;
     //private StopLightController controller;
@@ -20,33 +18,40 @@ public class AppPanel extends JPanel implements ActionListener {
     public static int FRAME_HEIGHT = 300;
 
     public AppPanel() {
-
+// tao ra phương thức stoplight, tao ra phương thức JPanel, stoplightview.
         model = new Stoplight();
         JPanel controlPanel = new JPanel();
         view = new StoplightView(model);
         //controller = new StopLightController(model);
-
+        // tao ra bang chứa có 1 hàng và hai cột.
         setLayout((new GridLayout(1, 2)));
+        // dùng Jpanel tao ra bộ đệm kép và bố cục luồng.
         add(controlPanel);
+        // gán lóp hiển thi vào.
         add(view);
-
+        //thiết đặt nền cho controlPanel và view
         controlPanel.setBackground(Color.PINK);
         view.setBackground(Color.GRAY);
-
+        // tao ra giao diện button chứa tên của chức năng cần thiết đặt cho ứng dụng.
         JButton changeButton = new JButton("Change");
         //changeButton.addActionListener(controller);
         changeButton.addActionListener(this);
         controlPanel.add(changeButton);
-
+        // khoi tao JFrame
         frame = new JFrame();
+        // hien thi ra giao diện do JFrame cung cấp.
         Container cp = frame.getContentPane();
         cp.add(this);
+        // Truyen menu vào
         frame.setJMenuBar(createMenuBar());
+        // cai dat viecj dóng giao diện
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        // thiết lập tiêu đề
         frame.setTitle("Stoplight Simulator 1.1");
+        // thiết đặt kích co cho cửa sổ
         frame.setSize(FRAME_WIDTH, FRAME_HEIGHT);
     }
-
+    // tao ra menu cho trình gia lập.
     protected JMenuBar createMenuBar() {
         JMenuBar result = new JMenuBar();
         // add file, edit, and help menus
@@ -66,7 +71,7 @@ public class AppPanel extends JPanel implements ActionListener {
     }
 
     public void display() { frame.setVisible(true); }
-
+    // tao ra phương thức để lắng nghe các sự kiện tư người dùng
     public void actionPerformed(ActionEvent ae) {
         String cmmd = ae.getActionCommand();
         if (cmmd == "Save") {
@@ -110,7 +115,8 @@ public class AppPanel extends JPanel implements ActionListener {
             Utilities.error("Unrecognized command: " + cmmd);
         }
     }
-public static void main(String[] args) {
+    public static void main(String[] args) {
     AppPanel app = new AppPanel();
+    app.display();
 }
 }

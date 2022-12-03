@@ -1,5 +1,5 @@
 
-import tools.*;
+
 import java.awt.Color;
 
 public class Stoplight extends Bean {
