@@ -19,7 +19,13 @@ h1 {
 .gwt-DialogBox {
   width: 400px;
 }
-
+.name{
+  text-align: start;
+  display: inline-block;
+}
+.enter{
+  text-align: right;
+}
 .dialogVPanel {
   margin: 5px;
 }
@@ -31,4 +37,16 @@ h1 {
 /** Set ids using widget.getElement().setId("idOfElement") */
 #closeButton {
   margin: 15px 6px 6px;
+}
+.stockword.input{
+  line-height: normal;
+  -webkit-appearance: button;
+  cursor: pointer;
+  box-sizing: border-box;
+  padding: auto;
+  height: auto;
+  width: auto;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  
 }
