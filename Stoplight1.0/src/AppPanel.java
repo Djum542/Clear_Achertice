@@ -12,11 +12,9 @@ public class AppPanel extends JPanel implements ActionListener {
     public static int FRAME_HEIGHT = 300;
 
     public AppPanel() {
-
         model = new Stoplight();
         JPanel controlPanel = new JPanel();
         view = new StoplightView(model);
-
         setLayout((new GridLayout(1, 2)));
         add(controlPanel);
         add(view);
